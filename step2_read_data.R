@@ -12,3 +12,17 @@ dat <- read_csv(filename)
 # dat is a tibble type.
 # Check the first six lines of data
 head(dat)
+
+# You can also use import functions in R base, like this
+dat2 <-  read.csv(filename)
+
+# The difference between dat and dat2 is that dat is a tibble, dat2 is a data frame.
+class(dat)
+class(dat2)
+
+# Another difference is that the characters are converted to factors in dat2
+class(dat2$region)
+
+# You can avoid converting characters to factors like this
+dat3 <- read.csv(filename, stringsAsFactors = FALSE)
+class(dat3$region)
